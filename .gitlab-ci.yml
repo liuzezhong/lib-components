@@ -1,0 +1,30 @@
+stages:
+  - build
+  - test
+  - release
+  - deploy
+
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_HOST: tcp://docker:2375
+
+check-vulnerabilities-and-licenses:
+  stage: test
+  image: ${LKI_HARBOR_HOST}/utils/whitesource-cli-tools:${CICD_WHITESOURCE_CLI_TOOLS_IMAGE_TAG}
+  script:
+    - java -jar /opt/whitesource/wss-unified-agent.jar -c ${WHITESOURCE_CONFIG_FILE}
+      -wss.url https://${WHITESOURCE_DOMAIN}/agent 
+      -apiKey ${WHITESOURCE_API_KEY}
+      -userKey ${WHITESOURCE_USER_KEY}
+      -productToken ${WHITESOURCE_PRODUCT_TOKEN_LAKEEL_LIBRARY}
+      -project ${CI_PROJECT_NAME}
+      -projectVersion $(cat package.json | jq -r .version)
+  tags:
+    - whitesource
+  when: manual
+  allow_failure: true
+  only:
+    refs:
+      - /^feature.*$/
+      - develop
+      - tags
