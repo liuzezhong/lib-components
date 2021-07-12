@@ -1,8 +1,8 @@
 {
-  "name": "lib-widgets-emulator",
-  "description": "An emulator for widget.",
-  "version": "1.1.1",
-  "author": "xutongtong <xutongtong@legendapl.com>",
+  "name": "lib-components",
+  "description": "An lib components for vue.",
+  "version": "1.0.0",
+  "author": "liuzezhong <liuzezhong@legendapl.com>",
   "main": "dist/index.umd.min.js",
   "module": "src/lib/index.js",
   "jsnext:main": "src/lib/index.js",
