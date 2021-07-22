@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Rest from '../api/Rest'
+// import Rest from '../api/Rest'
 
 export default {
   name: 'Login',
@@ -36,21 +36,22 @@ export default {
       if (!Object.keys(this.config).length) this.config = apiConfig
       try {
         if (this.config.tenantCode) sessionStorage.setItem('tenantCode', this.config.tenantCode)
-        const loginRes = new Rest().request({
-          targetApi: {
-            serviceCode: this.config.serviceCode,
-            apiCode: this.config.apiCode
-          },
-          path: {
-            userpoolId: this.config.userpoolId
-          },
-          data: {
-            clientId: this.config.clientId,
-            clientSecret: this.config.clientSecret,
-            offlineAccess: true
-          }
-        })
-        console.lg('loginRes', loginRes)
+        const loginRes = {}
+        // const loginRes = new Rest().request({
+        //   targetApi: {
+        //     serviceCode: this.config.serviceCode,
+        //     apiCode: this.config.apiCode
+        //   },
+        //   path: {
+        //     userpoolId: this.config.userpoolId
+        //   },
+        //   data: {
+        //     clientId: this.config.clientId,
+        //     clientSecret: this.config.clientSecret,
+        //     offlineAccess: true
+        //   }
+        // })
+        // console.lg('loginRes', loginRes)
         if (loginRes) sessionStorage.setItem('accessToken', loginRes.accessToken)
       } catch (e) {
         console.error(e)
@@ -59,9 +60,3 @@ export default {
   }
 }
 </script>
-
-<style rel="stylesheet/scss" lang="scss" scoped>
-.log-toolbar {
-  border-bottom: 1px #dcdfe6 solid;
-}
-</style>
