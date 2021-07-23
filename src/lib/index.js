@@ -3,7 +3,7 @@ import Vue from 'vue'
 import App from './components/App.vue'
 import Login from './components/Login.vue'
 
-Vue.component(Login)
+Vue.component('Login', Login)
 
 // @ts-ignore
 window._Vue = Vue

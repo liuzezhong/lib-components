@@ -828,7 +828,7 @@ var _Login2 = _interopRequireDefault(_Login);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_vue2.default.component(_Login2.default);
+_vue2.default.component('Login', _Login2.default);
 
 // @ts-ignore
 window._Vue = _vue2.default;
