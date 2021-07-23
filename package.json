@@ -23,8 +23,13 @@
   ],
   "dependencies": {
     "element-ui": "2.13.0",
+    "express-http-context": "^1.2.4",
     "lib-web-api-client": "https://git.cicd.lakeelcloud.com/applications/libs/lib-web-api-client.git#2.0.15",
-    "vue": "^2.6.11"
+    "moment-timezone": "^0.5.33",
+    "underscore": "^1.13.1",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.6",
+    "vue-property-decorator": "^9.1.2"
   },
   "browserslist": [
     "> 1%",
